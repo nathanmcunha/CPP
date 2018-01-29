@@ -15,4 +15,3 @@ def uploadTopsis():
         file = request.files['file']
         df = tp.calcule(file)
         return df.to_html()
-
