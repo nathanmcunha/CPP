@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-import TopSis as tp
+from flask import Flask, render_template, request, url_for
+from Multicriteria import TopSis as tp
 
 app = Flask(__name__)
 
@@ -13,9 +13,6 @@ def index():
 def uploadTopsis():
     if request.method == 'POST':
         file = request.files['file']
-        return calc_topsis(file)
+        df = tp.calcule(file)
+        return df.to_html()
 
-
-def calc_topsis(file):
-    df = tp.calcule(file)
-    return df.to_html()

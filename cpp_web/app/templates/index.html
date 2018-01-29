@@ -1,9 +1,14 @@
 {% extends "template.html" %}
 {% block content %}
 <body>
-    <form action="http://127.0.0.1:5000/uploadTopsis" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <input type="submit" value="Enviar">
-    </form>
+    <div class="container-fluid">
+           <form action="{{ url_for('uploadTopsis') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" name="file">
+                </div>
+
+                <input type="submit" class="btn btn-primary"  value="Enviar">
+            </form>
+    </div>
 </body>
 {% endblock %}
